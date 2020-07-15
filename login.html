@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <link href="css/login.css" type="text/css" rel="stylesheet" />
+        <script src="js/jquery-3.4.1.min.js"></script>
+        
+        <title>登录</title>
+    </head>
+    <body>
+        
+        <div class="card">
+            <div class="front">
+                <form>
+                    <img src="image/logo.png" id="logo"/><br>
+                    <div class="inputText" id="id">
+                        <input type="text" required maxlength="15">
+                        <span data-placeholder="Username"></span>
+                    </div>
+        
+                    <div class="inputText" id="password">
+                        <input type="password" required pattern=".{6,}" title="Password less than six digits" maxlength="16">
+                        <span data-placeholder="Password"></span>
+                    </div>
+                    <input type="submit" value="Login" class="button" />
+                    <p class="register">Register</p>
+                </form>
+            </div>
+            <div class="back">
+                <form>
+                    <img src="image/logo.png"id="logo"/><br>
+                    <div class="inputText" id="email">
+                        <input type="email" required maxlength="30">
+                        <span data-placeholder="email"></span>
+                    </div>
+                    <input type="submit" value="Register" class="button" />
+                    <p class="login_">login</p>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $($(".card p").click(
+                ()=>{
+                    $(".back").toggleClass("back-turn");
+                    $(".front").toggleClass("front-turn");
+                }
+            ));
+            $(".inputText input").on("focus", function(){
+                $(this).addClass("focus");
+            });
+            $(".inputText input").on("blur", function(){
+                if($(this).val() == "")
+                    $(this).removeClass("focus");
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <link href="css/code.css" type="text/css" rel="stylesheet" />
+        <link href="css/login.css" type="text/css" rel="stylesheet" />
+        <script src="js/jquery-3.4.1.min.js"></script>
+        
+        <title>验证码</title>
+    </head>
+    <body>
+        
+        <div class="card">
+            <div class="front">
+                <form>
+                    <img src="image/logo.png" id="logo"/><br>
+                    <div class="inputText" id="code">
+                        <input type="text" required maxlength="4" pattern="\d{4}"  title="code is 4 digit number">
+                        <span data-placeholder="Please enter your code"></span>
+                    </div>
+                    <input type="submit" value="verify" class="buttonCode" />
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(".inputText input").on("focus", function(){
+                $(this).addClass("focus");
+            });
+            $(".inputText input").on("blur", function(){
+                if($(this).val() == "")
+                    $(this).removeClass("focus");
+            });
+        </script>
+    </body>
+</html>

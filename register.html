@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <link href="css/register.css" type="text/css" rel="stylesheet" />
+        <link href="css/login.css" type="text/css" rel="stylesheet" />
+        <script src="js/jquery-3.4.1.min.js"></script>
+		<title>注册</title>
+		<script>
+			function checkPassword(){
+				var password1 = document.getElementById("password1").value;
+				var password2 = document.getElementById("password2").value;
+				if(password1 == password2){
+					return true;
+				}
+				else{
+					alert("password and confirm password are different");
+					return false;
+				}
+			}
+		</script>
+    </head>
+    <body>
+        
+        <div class="card">
+            <div class="front">
+                <form onsubmit="return checkPassword()">
+                    <img src="image/logo.png" id="logo"/><br>
+                    <div class="inputText" id="name">
+                        <input type="text" required maxlength="10"  title="code is 4 digit number">
+                        <span data-placeholder="username"></span>
+					</div>
+					<div class="inputText" id="pwd1">
+                        <input type="password" required maxlength="30" id="password1" pattern=".{6,}"  title="password must more than 6 digit">
+                        <span data-placeholder="password"></span>
+					</div>
+					<div class="inputText" id="pwd2">
+                        <input type="password" required maxlength="30" id="password2" pattern=".{6.}"  title="password must more than 6 digit">
+                        <span data-placeholder="confirm password"></span>
+					</div>
+                    <input type="submit" value="register" class="buttonRegister" />
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(".inputText input").on("focus", function(){
+                $(this).addClass("focus");
+            });
+            $(".inputText input").on("blur", function(){
+                if($(this).val() == "")
+                    $(this).removeClass("focus");
+            });
+        </script>
+    </body>
+</html>
